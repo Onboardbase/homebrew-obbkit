@@ -5,11 +5,11 @@
 class Obbkit < Formula
   desc ""
   homepage "https://github.com/Onboardbase/obbkit"
-  version "0.2.0"
+  version "0.3.0"
 
   on_macos do
-    url "https://github.com/Onboardbase/obbkit/releases/download/v0.2.0/obbkit_0.2.0_Darwin_all.tar.gz"
-    sha256 "b130c7ee5591dd49f500e9ba940fc77ec4e5856b74275e9786d76bd10df611e2"
+    url "https://github.com/Onboardbase/obbkit/releases/download/v0.3.0/obbkit_0.3.0_Darwin_all.tar.gz"
+    sha256 "f2f6676342cc4d4ec79a3ae08e50371afd9092c5c1dbfc3fb98447aec89f9929"
 
     def install
       bin.install "obbkit"
@@ -17,17 +17,17 @@ class Obbkit < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Onboardbase/obbkit/releases/download/v0.2.0/obbkit_0.2.0_Linux_x86_64.tar.gz"
-      sha256 "0bc07f314da18c3eaa2b81356918c13c979aa8b0be8a87746f4dfd700cea157f"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Onboardbase/obbkit/releases/download/v0.3.0/obbkit_0.3.0_Linux_arm64.tar.gz"
+      sha256 "96c4a04e79bf9245f871f40562b6bddc77129832a050a2be5e7df9184456be28"
 
       def install
         bin.install "obbkit"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Onboardbase/obbkit/releases/download/v0.2.0/obbkit_0.2.0_Linux_arm64.tar.gz"
-      sha256 "d6b116a068d80627d678a3c03594ae445d5f90de8407eb81bd95bdcce2a99dcf"
+    if Hardware::CPU.intel?
+      url "https://github.com/Onboardbase/obbkit/releases/download/v0.3.0/obbkit_0.3.0_Linux_x86_64.tar.gz"
+      sha256 "f04b1b7cd34e765823dc0b016ef6a3c5f6c507e029e8dbf6b8e45d604d9092f9"
 
       def install
         bin.install "obbkit"
